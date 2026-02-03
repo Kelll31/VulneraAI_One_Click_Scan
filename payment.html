@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата - VulneraAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>VulneraAI</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="payment-wrapper">
+                <div class="payment-container">
+                    <!-- Информация о заказе -->
+                    <div class="order-summary-card">
+                        <h2>Детали заказа</h2>
+                        <div class="order-info" id="orderInfo">
+                            <div class="order-item">
+                                <span class="label">Сайт:</span>
+                                <span class="value" id="orderWebsite">-</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="label">Email:</span>
+                                <span class="value" id="orderEmail">-</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="label">Тип сканирования:</span>
+                                <span class="value" id="orderScanType">-</span>
+                            </div>
+                            <div class="order-total">
+                                <span class="label">Итого к оплате:</span>
+                                <span class="value" id="orderPrice">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Форма оплаты -->
+                    <div class="payment-form-card">
+                        <h2>Оплата</h2>
+                        
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="paymentMethod" value="card" checked>
+                                <div class="method-content">
+                                    <span class="method-icon">💳</span>
+                                    <span class="method-name">Банковская карта</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="paymentMethod" value="yoomoney">
+                                <div class="method-content">
+                                    <span class="method-icon">💰</span>
+                                    <span class="method-name">ЮMoney</span>
+                                </div>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="paymentMethod" value="qiwi">
+                                <div class="method-content">
+                                    <span class="method-icon">🥝</span>
+                                    <span class="method-name">QIWI</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <form id="paymentForm" class="payment-form">
+                            <div id="cardForm" class="payment-form-section">
+                                <div class="form-group">
+                                    <label for="cardNumber">Номер карты</label>
+                                    <input 
+                                        type="text" 
+                                        id="cardNumber" 
+                                        class="form-control" 
+                                        placeholder="0000 0000 0000 0000"
+                                        maxlength="19"
+                                        required
+                                    >
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry">Срок действия</label>
+                                        <input 
+                                            type="text" 
+                                            id="expiry" 
+                                            class="form-control" 
+                                            placeholder="MM/YY"
+                                            maxlength="5"
+                                            required
+                                        >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input 
+                                            type="text" 
+                                            id="cvv" 
+                                            class="form-control" 
+                                            placeholder="123"
+                                            maxlength="3"
+                                            required
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="alertContainer"></div>
+
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">
+                                <span class="btn-text">Оплатить</span>
+                                <span class="btn-price" id="btnPrice">500 ₽</span>
+                            </button>
+                        </form>
+
+                        <div class="payment-security">
+                            <div class="security-badge">
+                                <span class="security-icon">🔒</span>
+                                <span class="security-text">Безопасная оплата</span>
+                            </div>
+                            <p class="security-desc">Ваши платежные данные защищены с помощью SSL-шифрования</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/payment.js"></script>
+</body>
+</html>

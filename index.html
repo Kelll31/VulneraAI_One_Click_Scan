@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulneraAI - Быстрое Сканирование</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>VulneraAI</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="scan-wrapper">
+                <div class="scan-container">
+                    <!-- Левая часть - Форма -->
+                    <div class="scan-form-card">
+                        <div class="scan-header">
+                            <h1>Быстрое Сканирование</h1>
+                            <p>Проверьте безопасность вашего сайта за считанные минуты</p>
+                        </div>
+
+                        <form id="scanForm" class="scan-form">
+                            <div class="form-group">
+                                <label for="website">URL Сайта</label>
+                                <input 
+                                    type="url" 
+                                    id="website" 
+                                    name="website" 
+                                    class="form-control" 
+                                    placeholder="https://example.com"
+                                    required
+                                >
+                                <span class="form-text">Введите полный URL адрес вашего сайта</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email для отчета</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-control" 
+                                    placeholder="your@email.com"
+                                    required
+                                >
+                                <span class="form-text">Отчет будет отправлен на эту почту</span>
+                            </div>
+
+                            <div class="scan-types">
+                                <label class="scan-type-label">Тип сканирования</label>
+                                <div class="scan-type-options">
+                                    <label class="scan-option">
+                                        <input type="radio" name="scanType" value="quick" checked>
+                                        <div class="option-content">
+                                            <span class="option-title">Быстрое</span>
+                                            <span class="option-desc">Базовые проверки (5-10 мин)</span>
+                                            <span class="option-price">500 ₽</span>
+                                        </div>
+                                    </label>
+                                    <label class="scan-option">
+                                        <input type="radio" name="scanType" value="full">
+                                        <div class="option-content">
+                                            <span class="option-title">Полное</span>
+                                            <span class="option-desc">Углубленный анализ (30-60 мин)</span>
+                                            <span class="option-price">1500 ₽</span>
+                                        </div>
+                                    </label>
+                                    <label class="scan-option">
+                                        <input type="radio" name="scanType" value="comprehensive">
+                                        <div class="option-content">
+                                            <span class="option-title">Комплексное</span>
+                                            <span class="option-desc">Максимальный охват (2-4 часа)</span>
+                                            <span class="option-price">3000 ₽</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div id="alertContainer"></div>
+
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">
+                                <span class="btn-text">Перейти к оплате</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </form>
+
+                        <div class="scan-footer">
+                            <p>Нажимая кнопку, вы соглашаетесь с <a href="#">условиями использования</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Правая часть - Информация -->
+                    <div class="scan-info">
+                        <div class="info-box">
+                            <div class="info-icon">🛡️</div>
+                            <h3>Профессиональный анализ</h3>
+                            <p>Используем передовые методы пентестинга и AI-технологии для обнаружения уязвимостей</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-icon">📊</div>
+                            <h3>Подробный отчет</h3>
+                            <p>Получите детальный отчет с описанием найденных уязвимостей и рекомендациями по устранению</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-icon">⚡</div>
+                            <h3>Быстрые результаты</h3>
+                            <p>Начните сканирование прямо сейчас и получите результаты в кратчайшие сроки</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-icon">🔒</div>
+                            <h3>Конфиденциальность</h3>
+                            <p>Ваши данные защищены и не передаются третьим лицам</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/scan.js"></script>
+</body>
+</html>
