@@ -1,10 +1,6 @@
 // VulneraAI Success Page JavaScript
 
-const SCAN_TYPE_NAMES = {
-    quick: 'Быстрое сканирование',
-    full: 'Полное сканирование',
-    comprehensive: 'Комплексное сканирование'
-};
+const SCAN_TYPE_NAME = 'Полный пентест веб-сайта';
 
 // Загрузка данных завершенного сканирования
 function loadCompletedScan() {
@@ -22,7 +18,7 @@ function loadCompletedScan() {
         // Отображаем данные
         document.getElementById('successWebsite').textContent = scanData.website;
         document.getElementById('successEmail').textContent = scanData.email;
-        document.getElementById('successScanType').textContent = SCAN_TYPE_NAMES[scanData.scan_type] || scanData.scan_type;
+        document.getElementById('successScanType').textContent = SCAN_TYPE_NAME;
         
         // Очищаем данные после отображения
         localStorage.removeItem('completedScan');

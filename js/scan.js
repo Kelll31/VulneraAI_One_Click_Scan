@@ -2,12 +2,9 @@
 
 const API_BASE = 'http://91.201.252.14/api';
 
-// Цены для разных типов сканирования
-const SCAN_PRICES = {
-    quick: 500,
-    full: 1500,
-    comprehensive: 3000
-};
+// Фиксированная цена для полного пентеста
+const SCAN_PRICE = 1500;
+const SCAN_TYPE = 'full';
 
 // Функция для показа уведомлений
 function showAlert(message, type = 'info') {
@@ -49,7 +46,6 @@ document.getElementById('scanForm').addEventListener('submit', async (e) => {
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const website = document.getElementById('website').value.trim();
     const email = document.getElementById('email').value.trim();
-    const scanType = document.querySelector('input[name="scanType"]:checked').value;
     
     // Валидация
     if (!isValidUrl(website)) {
@@ -71,8 +67,8 @@ document.getElementById('scanForm').addEventListener('submit', async (e) => {
         const scanData = {
             website: website,
             email: email,
-            scan_type: scanType,
-            price: SCAN_PRICES[scanType]
+            scan_type: SCAN_TYPE,
+            price: SCAN_PRICE
         };
         
         // Сохраняем данные в localStorage для страницы оплаты
@@ -92,13 +88,6 @@ document.getElementById('scanForm').addEventListener('submit', async (e) => {
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
     }
-});
-
-// Анимация при выборе типа сканирования
-document.querySelectorAll('input[name="scanType"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-        // Можно добавить дополнительную анимацию или логику
-    });
 });
 
 // Автоматическое добавление https:// если не указан протокол

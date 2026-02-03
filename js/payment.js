@@ -2,12 +2,8 @@
 
 const API_BASE = 'http://91.201.252.14/api';
 
-// Типы сканирования (для отображения)
-const SCAN_TYPE_NAMES = {
-    quick: 'Быстрое сканирование',
-    full: 'Полное сканирование',
-    comprehensive: 'Комплексное сканирование'
-};
+// Тип сканирования (для отображения)
+const SCAN_TYPE_NAME = 'Полный пентест веб-сайта';
 
 // Загрузка данных заказа
 function loadOrderData() {
@@ -25,7 +21,7 @@ function loadOrderData() {
         // Отображаем данные заказа
         document.getElementById('orderWebsite').textContent = scanData.website;
         document.getElementById('orderEmail').textContent = scanData.email;
-        document.getElementById('orderScanType').textContent = SCAN_TYPE_NAMES[scanData.scan_type] || scanData.scan_type;
+        document.getElementById('orderScanType').textContent = SCAN_TYPE_NAME;
         document.getElementById('orderPrice').textContent = `${scanData.price} ₽`;
         document.getElementById('btnPrice').textContent = `${scanData.price} ₽`;
         
@@ -142,9 +138,6 @@ if (orderData) {
         submitBtn.disabled = true;
         
         try {
-            // Здесь должна быть интеграция с платежной системой
-            // Для демо просто имитируем успешную оплату
-            
             showAlert('Обработка платежа...', 'info');
             
             // Имитация задержки
