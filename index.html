@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VulneraAI One-Click Scan - Быстрое сканирование вашего сайта на уязвимости с помощью ИИ">
+    <title>VulneraAI One-Click Scan - Проверка на уязвимости за 1 клик</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- AI Background Canvas -->
+    <canvas id="ai-background-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="https://vulneraai.ru" class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">VulneraAI</span>
+            </a>
+            <div class="nav-links">
+                <a href="https://vulneraai.ru" class="nav-link">Главная</a>
+                <a href="https://vulneraai.ru/#architecture" class="nav-link">Архитектура</a>
+                <a href="https://panel.vulneraai.ru" class="nav-link">Панель</a>
+                <a href="#" class="nav-link active">One-Click Scan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span class="status status--success">⚡ Мгновенное сканирование</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-subtitle-text">Проверьте</span> ваш сайт<br>
+                на уязвимости за <span class="hero-subtitle-text">1 клик</span>
+            </h1>
+            <p class="hero-description">
+                Профессиональный анализ безопасности с использованием искусственного интеллекта.<br>
+                Получите подробный отчет о найденных уязвимостях на вашу почту.
+            </p>
+        </div>
+    </section>
+
+    <!-- Scan Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="scan-form-wrapper">
+                <div class="scan-form-card">
+                    <div class="form-header">
+                        <h2>Начните сканирование</h2>
+                        <p>Введите URL вашего сайта и email для получения отчета</p>
+                    </div>
+
+                    <form id="scanForm" class="scan-form">
+                        <div class="form-group">
+                            <label for="website-url" class="form-label">
+                                <span class="label-icon">🌐</span>
+                                URL сайта для сканирования
+                            </label>
+                            <input 
+                                type="url" 
+                                id="website-url" 
+                                name="website_url" 
+                                class="form-control" 
+                                placeholder="https://example.com"
+                                required
+                                pattern="https?://.+"
+                            >
+                            <small class="form-hint">Укажите полный URL включая протокол (http:// или https://)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <span class="label-icon">📧</span>
+                                Email для отчета
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-control" 
+                                placeholder="your@email.com"
+                                required
+                            >
+                            <small class="form-hint">Отчет будет отправлен на указанный адрес в течение 24 часов</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agree-terms" name="agree_terms" required>
+                                <span>Я согласен с <a href="#" class="link-primary">условиями использования</a> и <a href="#" class="link-primary">политикой конфиденциальности</a></span>
+                            </label>
+                        </div>
+
+                        <div class="price-info">
+                            <div class="price-card">
+                                <div class="price-header">
+                                    <span class="price-label">Стоимость сканирования</span>
+                                    <span class="price-amount">₽299</span>
+                                </div>
+                                <ul class="price-features">
+                                    <li>✓ Полное AI-сканирование</li>
+                                    <li>✓ Детальный PDF-отчет</li>
+                                    <li>✓ Анализ до 100 страниц</li>
+                                    <li>✓ Результат в течение 24 часов</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--lg btn--full">
+                            <span>Перейти к оплате</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </form>
+
+                    <div class="form-footer">
+                        <p class="security-note">
+                            <span class="icon">🔒</span>
+                            Безопасная оплата через Stripe/Robokassa
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefits Sidebar -->
+                <div class="benefits-sidebar">
+                    <h3>Что вы получите</h3>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔍</div>
+                        <div class="benefit-content">
+                            <h4>AI-анализ уязвимостей</h4>
+                            <p>Автоматическая детекция уязвимостей с использованием машинного обучения</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📊</div>
+                        <div class="benefit-content">
+                            <h4>Подробный отчет</h4>
+                            <p>Детальное описание найденных проблем с рекомендациями по устранению</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-content">
+                            <h4>Быстрые результаты</h4>
+                            <p>Получите отчет на email в течение 24 часов после оплаты</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🛡️</div>
+                        <div class="benefit-content">
+                            <h4>Проверенная технология</h4>
+                            <p>Используем передовые методы тестирования на проникновение</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Как это работает</h2>
+                <p class="section-subtitle">Простой процесс в 4 шага</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Введите данные</h3>
+                    <p>Укажите URL сайта и email для получения отчета</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Оплатите сканирование</h3>
+                    <p>Безопасная оплата 299₽ через защищенный шлюз</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Автоматическое сканирование</h3>
+                    <p>AI начинает анализ вашего сайта на уязвимости</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Получите отчет</h3>
+                    <p>Подробный PDF-отчет придет на ваш email</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Как долго занимает сканирование?</h3>
+                    <p>Сканирование выполняется автоматически в течение 24 часов после оплаты. Вы получите email с отчетом сразу после завершения анализа.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Какие уязвимости вы обнаруживаете?</h3>
+                    <p>Наш AI анализирует SQL-инъекции, XSS, CSRF, небезопасные конфигурации, утечки данных и другие типы уязвимостей из базы OWASP Top 10.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Безопасно ли сканирование для моего сайта?</h3>
+                    <p>Да, мы используем неинвазивные методы тестирования. Сканирование не нарушает работу вашего сайта и выполняется с учетом robots.txt.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Что включает отчет?</h3>
+                    <p>PDF-отчет содержит список найденных уязвимостей, уровень их критичности, подробное описание и рекомендации по устранению.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section footer-section--primary">
+                        <div class="footer-logo">
+                            <span class="footer-logo-text">🛡️ VulneraAI</span>
+                        </div>
+                        <p class="footer-description">
+                            Профессиональная платформа для автоматизированного тестирования на проникновение с использованием искусственного интеллекта.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://github.com/Kelll31" class="social-link" target="_blank">GitHub</a>
+                            <a href="#" class="social-link">Telegram</a>
+                            <a href="#" class="social-link">Email</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Продукты</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://vulneraai.ru" class="footer-link">Главная</a></li>
+                            <li><a href="https://panel.vulneraai.ru" class="footer-link">Панель клиента</a></li>
+                            <li><a href="#" class="footer-link footer-link-highlight">One-Click Scan</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://vulneraai.ru/#docs" class="footer-link">Документация</a></li>
+                            <li><a href="https://github.com/Kelll31/VulneraAI" class="footer-link">GitHub</a></li>
+                            <li><a href="#" class="footer-link">Поддержка</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        © 2026 VulneraAI. Все права защищены.
+                    </p>
+                    <p class="footer-company">
+                        Разработано с ❤️ для специалистов по кибербезопасности
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/background.js"></script>
+    <script src="js/scan-form.js"></script>
+</body>
+</html>
