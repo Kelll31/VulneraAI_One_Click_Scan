@@ -60,6 +60,17 @@ body {
   padding: 0.8rem 1rem;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-brand h1 {
   margin: 0;
   font-size: 1.3rem;
@@ -69,6 +80,27 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  transition: all 0.15s ease-out;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+  background: rgba(34, 197, 94, 0.15);
 }
 
 /* Main Content */
@@ -345,5 +377,14 @@ label {
 
   .navbar-brand h1 {
     font-size: 1.1rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .navbar .container {
+    padding: 0.6rem 0.8rem;
   }
 }
